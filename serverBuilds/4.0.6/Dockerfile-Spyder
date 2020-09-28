@@ -1,0 +1,56 @@
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8 as builder
+
+RUN mkdir c:\temp && \
+    mkdir c:\server && \
+    mkdir c:\temp-preserver
+
+WORKDIR c:/temp
+
+COPY ["Version 1.98.zip", "c:/temp/"]
+
+RUN powershell -Command Expand-Archive -LiteralPath 'c:\temp\Version 1.98.zip' -DestinationPath 'c:\temp\pre-server' && \
+    powershell -Command Expand-Archive -LiteralPath 'c:\temp\pre-server\Applications\SpyderServer\Version 1.98\Version 4.0.6.zip' -DestinationPath 'c:\temp\server'
+
+# Modify global settings file to set virtual HAL
+WORKDIR "c:/temp/server/applications/SpyderServer/Version 4.0.6"
+RUN powershell -Command "(Get-Content '.\SystemSettings.xml' -Raw) -Replace '<HalType>Spider0806</HalType>', '<HalType>Virtual</HalType>' |  Set-Content '.\SystemSettings.xml'"
+
+# Copy in the Spyder server shim
+COPY ["SpyderServerShim.exe", "c:/temp/server/applications/SpyderServer/Version 4.0.6/"]
+
+# Run the Server (shim) for 10 seconds to get a default set of config files created
+RUN ["SpyderServerShim.exe", "-InitOnly"]
+
+FROM mcr.microsoft.com/dotnet/framework/runtime:4.8 as runtime
+LABEL Author="Derek Smithson"
+LABEL maintainer="derek.smithson@knightware.net"
+
+RUN mkdir c:\temp && \
+    mkdir c:\server && \
+    mkdir c:\temp-preserver
+
+COPY --from=builder "c:/temp/server/" "c:/"
+COPY --from=builder "c:/Spyder/" "c:/Spyder/"
+
+# UDP Control port
+EXPOSE 11116/udp
+
+# UDP Event port
+EXPOSE 11118/udp
+
+# UDP TCP Control Port
+EXPOSE 11119/tcp
+
+# Quick File Transfer (QFT)
+EXPOSE 7280/tcp
+
+#.Net Remoting
+EXPOSE 11112/tcp
+
+#Console ports
+EXPOSE 9990/udp
+EXPOSE 9991/udp
+
+WORKDIR "c:/applications/SpyderServer/Version 4.0.6"
+ENTRYPOINT [ "SpyderServerShim.exe" ]
+

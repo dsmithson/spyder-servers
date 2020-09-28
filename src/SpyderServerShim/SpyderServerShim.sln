@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30517.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SpyderServerShim", "SpyderServerShim.csproj", "{52AE63E6-405D-4C60-9AA5-15755155F09A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{52AE63E6-405D-4C60-9AA5-15755155F09A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{52AE63E6-405D-4C60-9AA5-15755155F09A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{52AE63E6-405D-4C60-9AA5-15755155F09A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{52AE63E6-405D-4C60-9AA5-15755155F09A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0C559C0F-BCBE-4DCA-99BA-E2E228A485D6}
+	EndGlobalSection
+EndGlobal

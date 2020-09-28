@@ -1,0 +1,9 @@
+D:\git\knightware\spyder-servers\src\SpyderServerShim\bin\Release\SpyderServerShim.exe.config
+D:\git\knightware\spyder-servers\src\SpyderServerShim\bin\Release\SpyderServerShim.exe
+D:\git\knightware\spyder-servers\src\SpyderServerShim\bin\Release\SpyderServerShim.pdb
+D:\git\knightware\spyder-servers\src\SpyderServerShim\bin\Release\Vista.dll
+D:\git\knightware\spyder-servers\src\SpyderServerShim\obj\Release\SpyderServerShim.csprojAssemblyReference.cache
+D:\git\knightware\spyder-servers\src\SpyderServerShim\obj\Release\SpyderServerShim.csproj.CoreCompileInputs.cache
+D:\git\knightware\spyder-servers\src\SpyderServerShim\obj\Release\SpyderServerShim.csproj.CopyComplete
+D:\git\knightware\spyder-servers\src\SpyderServerShim\obj\Release\SpyderServerShim.exe
+D:\git\knightware\spyder-servers\src\SpyderServerShim\obj\Release\SpyderServerShim.pdb
